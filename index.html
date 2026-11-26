@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кофейня «Зёрна»</title>
+  <style>
+    :root {
+      --cream: #f6efe5;
+      --brown: #39251c;
+      --caramel: #b87543;
+      --muted: #75665d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--brown);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(57, 37, 28, 0.14);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+    }
+
+    .logo span {
+      color: var(--caramel);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--caramel);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 48px;
+      padding: 82px 0;
+    }
+
+    .eyebrow {
+      color: var(--caramel);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      font-weight: bold;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 16px 0;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 470px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 13px 20px;
+      border-radius: 6px;
+      background: var(--brown);
+      color: white;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--caramel);
+    }
+
+    .coffee-art {
+      display: grid;
+      place-items: center;
+      min-height: 370px;
+      border-radius: 48% 48% 16px 16px;
+      background:
+        radial-gradient(circle at 50% 48%, #f5d8b2 0 17%, transparent 17.5%),
+        radial-gradient(ellipse at 50% 52%, #6d4029 0 29%, transparent 29.5%),
+        linear-gradient(145deg, #d7a779, #95613f);
+      box-shadow: 0 25px 60px rgba(78, 46, 29, 0.16);
+      font-size: 5rem;
+    }
+
+    section {
+      padding: 65px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .menu-item {
+      padding: 24px;
+      border: 1px solid rgba(57, 37, 28, 0.13);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .menu-item-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .price {
+      color: var(--caramel);
+      white-space: nowrap;
+    }
+
+    .menu-item p {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      align-items: center;
+      gap: 40px;
+      padding: 34px;
+      border-radius: 16px;
+      background: #eadcc9;
+    }
+
+    .about-icon {
+      display: grid;
+      place-items: center;
+      min-height: 210px;
+      border-radius: 12px;
+      background: #d5b18d;
+      font-size: 4rem;
+    }
+
+    .about p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 24px 0;
+      border-top: 1px solid rgba(57, 37, 28, 0.14);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .coffee-art {
+        min-height: 280px;
+      }
+
+      .menu {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 460px) {
+      .container {
+        width: min(100% - 28px, 1100px);
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.78rem;
+      }
+
+      .logo {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container" aria-label="Главное меню">
+      <a class="logo" href="#home">ЗЁРНА<span>.</span></a>
+      <div class="nav-links">
+        <a href="#menu">Меню</a>
+        <a href="#about">О кофейне</a>
+        <a href="#contact">Контакты</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <span class="eyebrow">Кофе с душой</span>
+        <h1>Твоё уютное место</h1>
+        <p>
+          Свежий кофе, ароматная выпечка и спокойная атмосфера.
+          Заходи к нам за хорошим настроением.
+        </p>
+        <a class="button" href="#menu">Посмотреть меню</a>
+      </div>
+      <div class="coffee-art" aria-label="Чашка кофе" role="img">☕</div>
+    </section>
+
+    <section class="container" id="menu">
+      <div class="section-heading">
+        <h2>Наше меню</h2>
+        <p>Любимые напитки на каждый день</p>
+      </div>
+
+      <div class="menu">
+        <article class="menu-item">
+          <div class="menu-item-top">
+            <span>Эспрессо</span>
+            <span class="price">18 сомони</span>
+          </div>
+          <p>Крепкий кофе с насыщенным вкусом и ароматной пенкой.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top">
+            <span>Капучино</span>
+            <span class="price">25 сомони</span>
+          </div>
+          <p>Эспрессо, горячее молоко и нежная молочная пенка.</p>
+        </article>
+
+        <article class="menu-item">
+          <div class="menu-item-top">
+            <span>Латте</span>
+            <span class="price">27 сомони</span>
+          </div>
+          <p>Мягкий молочный кофе для неспешного утра или встречи.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="about">
+      <div class="about">
+        <div class="about-icon" aria-hidden="true">🥐</div>
+        <div>
+          <span class="eyebrow">Наша история</span>
+          <h2>Больше, чем кофе</h2>
+          <p>
+            «Зёрна» — небольшая кофейня, где каждый напиток готовят с заботой.
+            Мы выбираем хорошие зёрна, печём свежие десерты и рады каждому гостю.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container contact" id="contact">
+      <span class="eyebrow">Будем рады видеть тебя</span>
+      <h2>Заглядывай в гости</h2>
+      <p>Душанбе · Каждый день с 08:00 до 20:00</p>
+      <a class="button" href="mailto:hello@example.com">Написать нам</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Кофейня «Зёрна». Хороший кофе — хорошее настроение.</div>
+  </footer>
+</body>
+</html>
